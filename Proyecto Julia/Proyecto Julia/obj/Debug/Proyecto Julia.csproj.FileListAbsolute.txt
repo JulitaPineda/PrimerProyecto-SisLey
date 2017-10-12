@@ -1,0 +1,22 @@
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\bin\Debug\Proyecto Julia.exe.config
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\bin\Debug\Proyecto Julia.exe
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\bin\Debug\Proyecto Julia.pdb
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Form1.resources
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Form2.resources
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Form3.resources
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Properties.Resources.resources
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.csproj.GenerateResource.Cache
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.exe
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.pdb
+C:\Users\Axel Rodriguez\Documents\Laboratorios\LaboratorioCompresion\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.csprojResolveAssemblyReference.cache
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\bin\Debug\Proyecto Julia.exe.config
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.exe
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.pdb
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\bin\Debug\Proyecto Julia.exe
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\bin\Debug\Proyecto Julia.pdb
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.csprojResolveAssemblyReference.cache
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Form1.resources
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Form2.resources
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Form3.resources
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto_Julia.Properties.Resources.resources
+C:\Users\I7T81TSW8\Desktop\Proyecto Julia\Proyecto Julia\obj\Debug\Proyecto Julia.csproj.GenerateResource.Cache
