@@ -87,7 +87,7 @@ namespace Proyecto_Julia.Clases
         public override string ToString()
         {
             string retorno = Nombre + "|" + Copias + "|";
-            for (int i = 0; i < Reglamentos.Cantidad; i++)
+            for (int i = 0; i <= Reglamentos.Cantidad; i++)
             {
                 if (i == Reglamentos.Cantidad - 1)
                     retorno += Reglamentos.Buscar(i).ToString();

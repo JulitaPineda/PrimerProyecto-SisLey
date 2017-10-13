@@ -103,7 +103,7 @@ namespace Proyecto_Julia.Clases
         public override string ToString()
         {
             string retorno = Nombre + "|" + Parlamentario.ToString() + "|" + Parlamentario.ToString();
-            for (int i = 0; i < Usuarios.Cantidad; i++)
+            for (int i = 0; i <= Usuarios.Cantidad; i++)
             {
                 if (i == Usuarios.Cantidad - 1)
                     retorno += Usuarios.Buscar(i).ToString();

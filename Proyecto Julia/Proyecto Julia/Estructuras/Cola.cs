@@ -22,7 +22,7 @@ namespace Proyecto_Julia.Estructuras
         /// <summary>
         /// Cantidad de elementos que contiene la cola
         /// </summary>
-        private int Cantidad { get; set; }
+        public int Cantidad { get; set; }
 
         /// <summary>
         /// Constructor de la clase Cola
@@ -48,6 +48,35 @@ namespace Proyecto_Julia.Estructuras
             else
             {
                 EncolarRecursivo(dato, Nodos);
+            }
+        }
+
+        public T Buscar(int posicion)
+        {
+            if (posicion > Cantidad)
+                throw new IndexOutOfRangeException("Indice fuera de los límites de la matriz.");
+            NodoLista<T> nodo = BusarRecursivo(posicion, 0, Nodos);
+            if (nodo == null)
+            {
+                throw new Exception("El elemento no existe en la lista");
+            }
+            return nodo.Dato;
+        }
+
+        public NodoLista<T> BusarRecursivo(int posicion, int actual, NodoLista<T> nodo)
+        {
+            if (actual == posicion)
+            {
+                return nodo;
+            }
+            else if (actual > Cantidad)
+            {
+                return null;
+            }
+            else
+            {
+                actual = actual + 1;
+                return BusarRecursivo(posicion, actual, nodo.Siguiente);
             }
         }
 
@@ -86,7 +115,7 @@ namespace Proyecto_Julia.Estructuras
         /// </summary>
         public void Guardar()
         {
-            StreamWriter escritor = new StreamWriter(NombreCola + ".cola");
+            StreamWriter escritor = new StreamWriter(@"c:/sysley/" + NombreCola + ".cola");
             NodoLista<T> nodo = Nodos;
             for (int i = 0; i <= Cantidad; i++)
             {

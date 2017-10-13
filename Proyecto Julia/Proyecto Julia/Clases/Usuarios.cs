@@ -18,7 +18,7 @@ namespace Proyecto_Julia.Clases
         public string Password { get; private set; }
 
         /// <summary>
-        /// Constructor de la clase usuario
+        /// Constructor de la calse usuario
         /// </summary>
         /// <param name="nombre">Nombre de usuario</param>
         /// <param name="password">Contraseña</param>

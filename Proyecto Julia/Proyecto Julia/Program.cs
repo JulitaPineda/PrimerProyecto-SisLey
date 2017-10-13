@@ -11,6 +11,11 @@ namespace Proyecto_Julia
 {
     static class Program
     {
+        public static Pila<Prestamo> Prestamos = new Pila<Prestamo>("Prestamos");
+        public static Cola<Prestamo> Solicitudes = new Cola<Prestamo>("Solucitudes"); 
+        /// <summary>
+        /// Listas donde se almacenan los datos del programa
+        /// </summary>
         public static ListaDoblementeEnlazada<Leyes> Leyes = new ListaDoblementeEnlazada<Clases.Leyes>("Leyes", false);
         public static ListaDoblementeEnlazada<Reglamento> Reglamentos = new ListaDoblementeEnlazada<Reglamento>("Reglamentos", false);
         public static ListaDoblementeEnlazada<Usuarios> Usuarios = new ListaDoblementeEnlazada<Clases.Usuarios>("Usuarios", false);
@@ -23,6 +28,8 @@ namespace Proyecto_Julia
         {
             try
             {
+                Usuarios.Agregar(new Clases.Usuarios("julita", "hola"));
+                Usuarios.Guardar();
                 string archivo = "c:\\sysley\\Leyes.list";
                 // Carga una lista
                 // Carga la lista de leyes
@@ -63,6 +70,7 @@ namespace Proyecto_Julia
                 }
                 lector.Close();
                 Reglamentos.Guardar();
+
                 archivo = "c:\\sysley\\Usuarios.list";
                 // Carga la lista de usuarios
                 lector = new StreamReader(archivo);
@@ -74,6 +82,7 @@ namespace Proyecto_Julia
                 }
                 lector.Close();
                 Usuarios.Guardar();
+
                 archivo = "c:\\sysley\\Grupos.list";
                 // Carga la lista de grupos
                 lector = new StreamReader(archivo);
@@ -86,10 +95,25 @@ namespace Proyecto_Julia
                 lector.Close();
                 Grupos.Guardar();
                 lector = null;
+                // Carga la pila de Prestamos
+                archivo = "c:\\sysley\\Prestamos.pila";
+                lector = new StreamReader(archivo);
+                linea = lector.ReadLine();
+                while (linea != "" && linea != null)
+                {
+                    string[] separados = linea.Split('|');
+
+                    linea = lector.ReadLine();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                System.IO.File.Create("c:\\sysley\\Leyes.list");
+                System.IO.File.Create("c:\\sysley\\Reglamentos.list");
+                System.IO.File.Create("c:\\sysley\\Usuarios.list");
+                System.IO.File.Create("c:\\sysley\\Grupos.list");
+                System.IO.File.Create("c:\\sysley\\Prestamos.pila");
                 System.IO.Directory.CreateDirectory(@"c:\sysley");
             }
             Application.EnableVisualStyles();

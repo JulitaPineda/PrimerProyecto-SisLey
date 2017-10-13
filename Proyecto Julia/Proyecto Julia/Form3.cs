@@ -73,11 +73,16 @@ namespace Proyecto_Julia
             cargarReglamentosCombo1();
             cargarLeyes();
             cargarLeyesCombo();
+            cargarLeyesCombo1();
             cargarUsuarios();
             cargarUsuariosCombo();
             cargarUsuariosCombo1();
+            cargarUsuariosCombo2();
             cargarGrupos();
             cargarGruposCombo();
+            cargarGruposCombo1();
+            cargarPrestamos();
+            cargarSolicitudes();
         }
 
         /// <summary>
@@ -145,6 +150,16 @@ namespace Proyecto_Julia
                 comboBox2.Items.Add(ley.Nombre);
             }
         }
+        private void cargarLeyesCombo1()
+        {
+            comboBox7.Items.Clear();
+            Leyes ley = null;
+            for (int i = 0; i <= Program.Leyes.Cantidad; i++)
+            {
+                ley = Program.Leyes.Buscar(i);
+                comboBox7.Items.Add(ley.Nombre);
+            }
+        }
 
         /// <summary>
         /// Carga los usuarios en un datagridview
@@ -181,6 +196,16 @@ namespace Proyecto_Julia
             {
                 user = Program.Usuarios.Buscar(i);
                 comboBox6.Items.Add(user.Nombre);
+            }
+        }
+        private void cargarUsuariosCombo2()
+        {
+            comboBox9.Items.Clear();
+            Usuarios user = null;
+            for (int i = 0; i <= Program.Usuarios.Cantidad; i++)
+            {
+                user = Program.Usuarios.Buscar(i);
+                comboBox9.Items.Add(user.Nombre);
             }
         }
 
@@ -261,6 +286,7 @@ namespace Proyecto_Julia
                     }
                     cargarLeyes();
                     cargarLeyesCombo();
+                    cargarLeyesCombo1();
                     Program.Leyes.Guardar();
                 }
             }
@@ -363,6 +389,7 @@ namespace Proyecto_Julia
                     cargarUsuarios();
                     cargarUsuariosCombo();
                     cargarUsuariosCombo1();
+                    cargarUsuariosCombo2();
                     Program.Usuarios.Guardar();
                 }
                 else
@@ -401,6 +428,16 @@ namespace Proyecto_Julia
             {
                 grupo = Program.Grupos.Buscar(i);
                 comboBox5.Items.Add(grupo.Nombre);
+            }
+        }
+        private void cargarGruposCombo1()
+        {
+            comboBox8.Items.Clear();
+            Grupo grupo = null;
+            for (int i = 0; i <= Program.Grupos.Cantidad; i++)
+            {
+                grupo = Program.Grupos.Buscar(i);
+                comboBox8.Items.Add(grupo.Nombre);
             }
         }
 
@@ -490,6 +527,7 @@ namespace Proyecto_Julia
                     }
                     cargarGrupos();
                     cargarGruposCombo();
+                    cargarGruposCombo1();
                     Program.Grupos.Guardar();
                 }
             }
@@ -570,6 +608,81 @@ namespace Proyecto_Julia
             Program.Reglamentos.Guardar();
             Program.Usuarios.Guardar();
             Application.Exit();
+        }
+
+        private void cargarPrestamos()
+        {
+            Prestamo prestamos = null;
+            dataGridView5.Rows.Clear();
+            for (int i = 0; i <= Program.Prestamos.Cantidad; i++)
+            {
+                prestamos = Program.Prestamos.Buscar(i);
+                dataGridView5.Rows.Add(prestamos.Ley.Nombre, prestamos.GrupoPrestado.Nombre, prestamos.Encargado.Nombre);
+            }
+        }
+
+        private void cargarSolicitudes()
+        {
+            Prestamo solicitud = null;
+            dataGridView6.Rows.Clear();
+            for (int i = 0; i <= Program.Solicitudes.Cantidad; i++)
+            {
+                solicitud = Program.Solicitudes.Buscar(i);
+                dataGridView6.Rows.Add(solicitud.Ley.Nombre, solicitud.GrupoPrestado.Nombre, solicitud.Encargado.Nombre);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Leyes ley = null;
+            Grupo grupo = null;
+            Usuarios user = null;
+            for (int i = 0; i <= Program.Leyes.Cantidad; i++)
+            {
+                ley = Program.Leyes.Buscar(i); 
+                if (ley.Nombre == comboBox7.SelectedItem.ToString())
+                {
+                    i = Program.Leyes.Cantidad + 1;
+                }
+            }
+            for (int i = 0; i <= Program.Grupos.Cantidad; i++)
+            {
+                grupo = Program.Grupos.Buscar(i);
+                if (grupo.Nombre == comboBox8.SelectedItem.ToString())
+                {
+                    i = Program.Grupos.Cantidad + 1;
+                }
+            }
+            if (comboBox9.SelectedItem.ToString() != grupo.Parlamentario.Nombre)
+            {
+                for (int i = 0; i < grupo.Usuarios.Cantidad; i++)
+                {
+                    user = grupo.Usuarios.Buscar(i);
+                    if (user.Nombre == comboBox9.SelectedItem.ToString())
+                    {
+                        i = grupo.Usuarios.Cantidad + 1;
+                    }
+                }
+            }
+            else
+            {
+                user = grupo.Parlamentario;
+            }
+            if (ley.Prestamos >= ley.Copias)
+            {
+                ley.Prestamos++;
+                MessageBox.Show("Se hará una solicitud para prestar la ley.");
+                Program.Solicitudes.Encolar(new Prestamo(grupo, 1, user, ley));
+                Program.Solicitudes.Guardar();
+            }
+            else
+            {
+                ley.Prestamos++;
+                Program.Prestamos.Apilar(new Prestamo(grupo, 1, user, ley));
+                Program.Prestamos.Guardar();
+            }
+            cargarPrestamos();
+            cargarSolicitudes();
         }
     }
 }
